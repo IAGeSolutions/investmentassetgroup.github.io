@@ -1,60 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Investment Asset Group - Energy Solutions</title>
-<style>
-    body { 
-        font-family: Arial, sans-serif; 
-        margin: 0; 
-        padding: 0; 
-        background: #ffffff; 
-        color: #333;
+  <meta charset="UTF-8">
+  <title>IAG Energy Solutions | Cross-Border Fuel & Energy Logistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IAG Energy Solutions sources, finances, and delivers ULSD and refined products from the United States to customers in Mexico with a focus on reliability, risk management, and compliant logistics.">
+  <style>
+    :root {
+      --primary: #f89c1c;      /* orange from logo */
+      --dark: #424242;         /* dark gray */
+      --light-bg: #f5f5f5;
+      --max-width: 1080px;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--dark);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
     header {
-        background: #f4f4f4;
-        padding: 40px;
-        text-align: center;
-        border-bottom: 4px solid #f89c1c;
+      border-bottom: 1px solid #e0e0e0;
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    img.logo {
-        max-width: 300px;
-        margin-bottom: 20px;
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo {
+      height: 40px;
+    }
+
+    .nav-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    .nav-right a {
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .nav-right a:hover {
+      color: var(--primary);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 40%, #fef6e7 100%);
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 3vw + 1rem, 2.7rem);
+      color: var(--dark);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      max-width: 32rem;
+      color: #555;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-metadata {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      padding: 0.7rem 1.8rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.7rem 1.6rem;
+      font-weight: 600;
+      border: 1px solid #ccc;
+      background: white;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      padding: 1.5rem 1.5rem 1.25rem;
+      border-top: 4px solid var(--primary);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+    }
+
+    .hero-metric-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: #666;
+    }
+
+    .hero-metric-label {
+      font-weight: 500;
+    }
+
+    .hero-metric-value {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .hero-card-note {
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    /* SECTIONS */
     section {
-        padding: 40px;
-        max-width: 900px;
-        margin: auto;
-        line-height: 1.6;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
     }
-    h1 { color: #444; }
-    h2 { color: #f89c1c; }
-</style>
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    section p.lead {
+      margin-top: 0;
+      font-size: 0.95rem;
+      color: #666;
+      max-width: 36rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #e5e5e5;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: #fff6e6;
+      color: #b66b01;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.3rem 0 0.3rem;
+      font-size: 0.93rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    .muted {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .highlight-bar {
+      height: 3px;
+      width: 60px;
+      background: var(--primary);
+      border-radius: 999px;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      background: #f0f0f0;
+      color: #555;
+    }
+
+    .band {
+      background: var(--light-bg);
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #e0e0e0;
+      padding: 1.5rem 1.25rem 2rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    footer .inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.5rem;
+      }
+      .hero-card {
+        order: -1;
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-right {
+        display: none; /* hide nav links on very small screens for simplicity */
+      }
+      .nav-logo {
+        height: 34px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.JPG" class="logo" alt="IAG Energy Solutions Logo">
-    <h1>Investment Asset Group - Energy Solutions</h1>
-    <p>Innovative Energy • Strategic Investment • Sustainable Growth</p>
+  <div class="nav">
+    <div class="nav-left">
+      <img src="logo.JPG" class="nav-logo" alt="IAG Energy Solutions Logo">
+      <div class="nav-title">IAG Energy Solutions</div>
+    </div>
+    <div class="nav-right">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why IAG</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </header>
 
-<section>
-    <h2>Who We Are</h2>
-    <p>IAG Energy Solutions provides strategic energy investment, operational optimization, and integrated solutions for modern fuel, renewable, and industrial systems.</p>
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Fuel & Energy Logistics · Cross-Border</div>
+      <h1>ULSD Supply & Delivery from the U.S. to Mexico</h1>
+      <p class="hero-sub">
+        IAG Energy Solutions sources, finances, and delivers ultra-low sulfur diesel (ULSD) 
+        and refined products from the United States to qualified commercial and industrial buyers in Mexico.
+      </p>
+      <div class="hero-metadata">
+        Houston-based · Focus on compliance, counterparty quality, and risk management.
+      </div>
+      <div class="hero-buttons">
+        <a href="contact.html"><button class="btn-primary">Request Fuel Supply</button></a>
+        <a href="contact.html"><button class="btn-secondary">Speak with IAG</button></a>
+      </div>
+    </div>
 
-    <h2>What We Do</h2>
-    <ul>
-        <li>Energy Infrastructure Investment</li>
-        <li>Operational Optimization & Cost Reduction</li>
-        <li>Renewable Energy Project Advisory</li>
-        <li>Oil & Gas Asset Analysis</li>
-        <li>Energy Trading & Risk Expertise</li>
-    </ul>
+    <div class="hero-card">
+      <h3>Factoring & Trade Partners</h3>
+      <div class="hero-metric-row">
+        <span class="hero-metric-label">Product Focus</span>
+        <span class="hero-metric-value">ULSD & refined fuels</span>
+      </div>
+      <div class="hero-metric-row">
+        <span class="hero-metric-label">Flows</span>
+        <span class="hero-metric-value">U.S. → Mexico</span>
+      </div>
+      <div class="hero-metric-row">
+        <span class="hero-metric-label">Role</span>
+        <span class="hero-metric-value">Sourcing · Structuring · Delivery</span>
+      </div>
+      <p class="hero-card-note">
+        IAG Energy Solutions is actively building relationships with factoring providers, 
+        trade finance partners, and logistics operators to support reliable cross-border diesel deliveries.
+      </p>
+    </div>
+  </div>
+</div>
 
-    <h2>Contact Us</h2>
-    <p>Email: info@IAGeSolutions.com</p>
+<section id="about">
+  <h2>Who We Are</h2>
+  <div class="highlight-bar"></div>
+  <p class="lead">
+    IAG Energy Solutions is a Houston-based energy trading and logistics firm focused on 
+    sourcing and delivering ultra-low sulfur diesel (ULSD) and refined products from the United States
+    to customers in Mexico with a strong emphasis on risk management and operational reliability.
+  </p>
+  <div class="grid-2">
+    <div>
+      <div class="pill">Energy & Logistics</div>
+      <p>
+        Our background combines quantitative risk management, physical energy trading,
+        and structured supply agreements. We work with producers, wholesalers, and qualified end-users
+        to match reliable supply with real demand.
+      </p>
+      <ul>
+        <li>Cross-border ULSD supply structures (U.S. origin to Mexico)</li>
+        <li>Delivered solutions coordinated with trusted logistics partners</li>
+        <li>Credit-aware deal design to support factoring and trade finance</li>
+        <li>Focus on compliance and clear documentation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>For Factoring & Trade Finance Providers</h3>
+      <p class="muted">
+        This site provides a simple overview of IAG Energy Solutions for counterparties performing 
+        due diligence on our activity in the ULSD and refined products market.
+      </p>
+      <ul>
+        <li>Transparent transaction documentation and invoicing</li>
+        <li>Defined counterparties and delivery points</li>
+        <li>Emphasis on repeatable, contracted flows vs. one-off spot deals</li>
+        <li>Risk controls informed by market risk and credit risk experience</li>
+      </ul>
+    </div>
+  </div>
 </section>
+
+<div class="band">
+  <section id="services">
+    <h2>What We Do</h2>
+    <div class="highlight-bar"></div>
+    <p class="lead">
+      IAG Energy Solutions focuses on structured fuel supply for commercial and industrial buyers,
+      with an emphasis on ULSD deliveries from the U.S. into Mexico.
+    </p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>ULSD & Refined Product Sourcing</h3>
+        <ul>
+          <li>Identification of reliable ULSD and refined product supply in the U.S. market</li>
+          <li>Commercial negotiation with producers, suppliers, and wholesalers</li>
+          <li>Matching volumes, timing, and specifications to customer requirements</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Cross-Border Delivery & Logistics Coordination</h3>
+        <ul>
+          <li>Coordination with logistics providers for transport and border crossing</li>
+          <li>Structuring delivered-to-destination options where appropriate</li>
+          <li>Alignment of documentation for customs and compliance</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Structured Commercial & Credit Terms</h3>
+        <ul>
+          <li>Design of commercial terms to support factoring and trade finance</li>
+          <li>Clear invoicing flows between U.S. sellers, IAG, and Mexican buyers</li>
+          <li>Attention to credit exposure, payment terms, and collection risk</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Risk Management & Market Insight</h3>
+        <ul>
+          <li>Experience with energy risk analytics and trading data</li>
+          <li>Monitoring of price exposure and margin requirements</li>
+          <li>Support for structured or hedged pricing where applicable</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section id="why">
+  <h2>Why Work with IAG Energy Solutions</h2>
+  <div class="highlight-bar"></div>
+  <div class="grid-2">
+    <div>
+      <p>
+        Cross-border fuel flows require more than just finding product. 
+        Counterparties, documentation, credit terms, and logistics all have to line up. 
+        IAG Energy Solutions exists to sit at that intersection and make the process clear and manageable.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Houston, TX based</div>
+        <div class="badge">ULSD focus</div>
+        <div class="badge">U.S. → Mexico flows</div>
+        <div class="badge">Risk-aware structuring</div>
+      </div>
+    </div>
+    <div>
+      <h3>Counterparty Overview</h3>
+      <p class="muted">
+        IAG Energy Solutions is a privately owned LLC. We work in collaboration with 
+        established logistics providers and vetted counterparties. For factors and lenders,
+        we are happy to provide:
+      </p>
+      <ul>
+        <li>Company and ownership information</li>
+        <li>Details on specific ULSD or refined product transactions</li>
+        <li>Sample documentation packages</li>
+        <li>Contact details for key counterparties when appropriate</li>
+      </ul>
+      <p class="muted">
+        Please use the contact page to request additional information relevant to your credit file
+        or onboarding process.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div>© <span id="year"></span> IAG Energy Solutions · Investment Asset Group LLC</div>
+    <div>For counterparties and finance providers: please visit the <a href="contact.html">Contact page</a> to request details.</div>
+  </div>
+</footer>
+
+<script>
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
